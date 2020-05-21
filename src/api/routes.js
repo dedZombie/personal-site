@@ -1,8 +1,12 @@
 const express = require('express');
+const router = express.Router();
+const fetch = require('node-fetch');
+
+router.get('/', (req, res, next) => {
+    res.send('Hello world!');
+});
 
 function sendEmail() {
-
-    const router = express.Router();
 
     router.post('/send-email', (req, res, next) => {
         res.send('POST CALLED');
@@ -12,6 +16,19 @@ function sendEmail() {
 
 }
 
+function getUsers() {
+
+    router.get('/api/users', (req, res, next) => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(res => res.json())
+            .then(data => res.send(data));
+    });
+
+    return router;
+
+}
+
 module.exports = { 
-    sendEmail
+    sendEmail,
+    getUsers
 };
