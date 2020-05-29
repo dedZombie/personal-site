@@ -4,18 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HomeComponent } from './components/home/home.component';
-import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    ContactFormComponent
+    AppComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

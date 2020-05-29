@@ -1,0 +1,30 @@
+.nav-wrapper {
+    padding: .5rem 0;
+    background-color: #2a77d0;
+}
+
+nav {
+    &#app-nav {
+        padding: 1rem;
+        display: flex;
+        align-items: flex-end;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+
+            li {
+                a {
+                    padding: 0 .75rem;
+                    font-size: 1.25rem;
+                    text-decoration: none;
+                    line-height: 100%;
+                    text-transform: uppercase;
+                    color: white;
+                }
+            }
+        }
+    }
+}

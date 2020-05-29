@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*, body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    &.app-content {
+        padding: 0 1rem;
+    }
+}
+
+.logo-container {
+    display: block;
+    width: 50px;
+    margin-right: auto;
+}
+
+.responsive {
+    display: block;
+    width: 100%;
+    height: auto;
+}
