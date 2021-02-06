@@ -1,5 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { trigger, state, animate, style, transition } from '@angular/animations';
+
+import { HttpClient } from '@angular/common/http';
+
+export interface IUsers {
+    id: string;
+    name: string;
+    username: string;
+    email: string;
+    address: IAdress
+    phone: string;
+    website: string;
+    company: ICompany;
+}
+
+export interface IAdress {
+    street: string;
+    suit: string;
+    city: string;
+    zipcode: string;
+    geo: IGeo
+}
+
+export interface IGeo {
+    lat: string;
+    long: string;
+}
+
+export interface ICompany {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+}
 
 @Component({
     selector: 'app-home',
@@ -17,7 +49,18 @@ import { trigger, state, animate, style, transition } from '@angular/animations'
         ])
     ]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+    private url: string = 'https://jsonplaceholder.typicode.com/users';
 
-    constructor() {}
+    constructor(private http: HttpClient) {}
+
+    fetchUsers() {
+        this.http.get(this.url).subscribe(
+            data => console.log(data)
+        );
+    }
+
+    ngOnInit() {
+        this.fetchUsers();
+    }
 }
