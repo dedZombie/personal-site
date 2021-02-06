@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
 
     fetchUsers() {
         this.http.get(this.url).subscribe(
-            data => console.log(data)
+            (data: IUsers) => { console.log(data); }
         );
     }
 
