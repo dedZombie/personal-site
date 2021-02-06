@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, animate, style, transition } from '@angular/animations';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export interface IUsers {
     id: string;
@@ -51,11 +51,12 @@ export interface ICompany {
 })
 export class HomeComponent implements OnInit {
     private url: string = 'https://jsonplaceholder.typicode.com/users';
+    private localServer: string = 'http://localhost:8001';
 
     constructor(private http: HttpClient) {}
 
     fetchUsers() {
-        this.http.get(this.url).subscribe(
+        this.http.get(this.localServer + '/api/users').subscribe(
             (data: IUsers) => { console.log(data); }
         );
     }
